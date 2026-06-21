@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
       }),
     ],
 
-   base: "/globe/",
+    base: "/atelier-berger-globe3D-demo/",
 
     server: {
       allowedHosts: env.ALLOWED_HOSTS?.split(",") ?? ["localhost"],

@@ -1,0 +1,67 @@
+.home {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #050505;
+  color: #f5efe3;
+}
+
+.globe-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+.hero {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  padding: 12vh 8vw;
+  pointer-events: none;
+}
+
+.eyebrow {
+  color: #d6af4b;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.95;
+  font-weight: 500;
+  margin: 0;
+}
+
+.intro {
+  max-width: 520px;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(245, 239, 227, 0.78);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  pointer-events: auto;
+}
+
+.actions a {
+  color: #050505;
+  background: #d6af4b;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.actions .secondary {
+  color: #d6af4b;
+  background: transparent;
+  border: 1px solid rgba(214, 175, 75, 0.5);
+}

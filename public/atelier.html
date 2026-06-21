@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Atelier Berger - Marqueterie du Monde</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Manrope:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#e2e2e2",
+                    "tertiary-fixed": "#e5e2dd",
+                    "on-surface": "#02050F",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c9c6c2",
+                    "on-tertiary-container": "#858480",
+                    "charcoal-ink": "#02050F",
+                    "surface-container-highest": "#e8e8e8",
+                    "outline": "#76777c",
+                    "error": "#ba1a1a",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#1c1c19",
+                    "on-primary-container": "#7f8492",
+                    "surface-container-low": "#f3f3f4",
+                    "atelier-gold": "#C5A86B",
+                    "surface-container-high": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#474743",
+                    "inverse-surface": "#2f3131",
+                    "on-surface-variant": "#45464c",
+                    "on-secondary-fixed-variant": "#594410",
+                    "secondary-fixed": "#ffdf9d",
+                    "on-secondary-fixed": "#251a00",
+                    "tertiary": "#000000",
+                    "surface": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "on-error-container": "#93000a",
+                    "atelier-gold": "#C5A86B",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#c2c6d6",
+                    "surface-tint": "#595e6c",
+                    "secondary": "#725b26",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-tertiary-fixed": "#1c1c19",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "muted-stone": "#A39E93",
+                    "on-background": "#02050F",
+                    "primary-fixed": "#dee2f3",
+                    "surface-dim": "#dadada"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "margin-desktop": "64px",
+                    "section-gap": "120px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Manrope"],
+                    "headline-lg-mobile": ["Libre Caslon Text"],
+                    "body-md": ["Manrope"],
+                    "headline-sm": ["Libre Caslon Text"],
+                    "body-lg": ["Manrope"],
+                    "headline-lg": ["Libre Caslon Text"],
+                    "display-lg": ["Libre Caslon Text"],
+                    "headline-md": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "300"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #FDFBF7;
+            overflow: hidden;
+        }
+        .vignette-overlay {
+            background: radial-gradient(circle, transparent 50%, rgba(253, 251, 247, 0.4) 100%);
+            pointer-events: none;
+        }
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        #threejs-container-GLOBE {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-[#FDFBF7] text-charcoal-ink font-body-md selection:bg-atelier-gold/20">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-20 backdrop-blur-xl border-b border-black/5 bg-[#FDFBF7]/60">
+<button aria-label="Menu" class="w-10 h-10 flex items-center justify-start text-charcoal-ink active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm tracking-[0.25em] text-charcoal-ink uppercase">ATELIER BERGER</h1>
+<button aria-label="Search" class="w-10 h-10 flex items-center justify-end text-charcoal-ink active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="relative w-full h-screen flex flex-col items-center justify-center pt-20 pb-24 overflow-hidden">
+<!-- Subtle Background Textures / Vignette -->
+<div class="absolute inset-0 vignette-overlay z-0"></div>
+<!-- 3D Interactive Globe Container -->
+<div class="relative w-full h-full flex items-center justify-center z-10">
+<div class="fixed inset-0 w-full h-full bg-transparent" id="threejs-container-GLOBE"></div>
+<!-- Atmospheric glow behind the object: Warm Gold/White for depth -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] aspect-square -z-10 blur-[140px] opacity-20 bg-atelier-gold rounded-full scale-125 pointer-events-none"></div>
+</div>
+<!-- Interaction Prompt -->
+<div class="absolute bottom-32 z-20 text-center w-full px-margin-mobile fade-in" style="animation-delay: 0.5s;">
+<p class="font-headline-sm text-headline-sm text-charcoal-ink mb-1 opacity-90">Bas-Relief Cartography</p>
+<div class="flex flex-col items-center gap-2">
+<span class="font-label-caps text-label-caps text-muted-stone tracking-[0.2em] uppercase">White Plaster &amp; Silver Leaf</span>
+<div class="w-px h-8 bg-atelier-gold mt-2 animate-pulse"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-mobile py-6 bg-[#FDFBF7]/90 backdrop-blur-md border-t border-black/5 md:hidden">
+<!-- Explore (Active) -->
+<a class="flex flex-col items-center justify-center text-charcoal-ink relative after:content-[''] after:absolute after:-bottom-2 after:w-1 after:h-1 after:bg-atelier-gold after:rounded-full group transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-caps text-[10px] tracking-wider uppercase">Explore</span>
+</a>
+<!-- Saved -->
+<a class="flex flex-col items-center justify-center text-muted-stone hover:text-charcoal-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">bookmark</span>
+<span class="font-label-caps text-[10px] tracking-wider uppercase">Saved</span>
+</a>
+<!-- Curated -->
+<a class="flex flex-col items-center justify-center text-muted-stone hover:text-charcoal-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">collections_bookmark</span>
+<span class="font-label-caps text-[10px] tracking-wider uppercase">Curated</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-muted-stone hover:text-charcoal-ink transition-colors group" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">person</span>
+<span class="font-label-caps text-[10px] tracking-wider uppercase">Profile</span>
+</a>
+</nav>
+<!-- Three.js Implementation -->
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-GLOBE');
+  if (!container) return;
+
+  const scene = new THREE.Scene();
+  const width = container.clientWidth;
+  const height = container.clientHeight;
+  const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+  
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(width, height);
+  container.appendChild(renderer.domElement);
+
+  const textureLoader = new THREE.TextureLoader();
+  
+  // Bas-relief texture from IMAGE_13 for the landmasses
+  const landTexture = textureLoader.load('https://lh3.googleusercontent.com/aida/AP1WRLuSn9J2B-zjR0ZGyCK8RdvFLVGGNpEQddDzE-V4DnPQtYHfaIFjD6RM3UX8dDeBWAmKBh-IRJ5KMdNpkk8GWB3b7Gabca15fKK4-6jeO4hRzsiAl1EenIBN7wxk1q3hh_DMJbT7g6zMpdeWSc9hXSnoxpQtZ0arjJcz4SLS3LHJE8Mnfh9mjXVHelgWBCWfMTtYdtSMueed5OiCP5af7y-OVk_AZZZUb0REFCAz83m8AB-7IsH0LPbq7Gxc');
+  
+  // High contrast Landmask
+  const landMask = textureLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg');
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // Base Globe (Ocean) - Soft semi-transparent white/silver
+  const oceanGeo = new THREE.SphereGeometry(2, 64, 64);
+  const oceanMat = new THREE.MeshStandardMaterial({
+    color: 0xeeeeee, 
+    metalness: 0.8,
+    roughness: 0.1,
+    transparent: true,
+    opacity: 0.4
+  });
+  const ocean = new THREE.Mesh(oceanGeo, oceanMat);
+  group.add(ocean);
+
+  // Continent Layer - Using IMAGE_13
+  const landGeo = new THREE.SphereGeometry(2.03, 64, 64);
+  const landMat = new THREE.MeshStandardMaterial({
+    map: landTexture,
+    bumpMap: landTexture,
+    bumpScale: 0.1, // Stronger relief
+    metalness: 0.05,
+    roughness: 0.6,
+    alphaMap: landMask,
+    transparent: true,
+    side: THREE.FrontSide
+  });
+  const continents = new THREE.Mesh(landGeo, landMat);
+  group.add(continents);
+
+  // Atmospheric Glow Ring (Warm Gold/White)
+  const ringGeo = new THREE.TorusGeometry(2.1, 0.003, 16, 100);
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0xC5A86B, transparent: true, opacity: 0.15 });
+  const ring = new THREE.Mesh(ringGeo, ringMat);
+  ring.rotation.x = Math.PI / 2;
+  scene.add(ring);
+
+  // Balanced Lighting for Light Theme
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+  dirLight.position.set(5, 5, 5);
+  scene.add(dirLight);
+
+  // Warm highlight for the luxury feel
+  const goldLight = new THREE.PointLight(0xC5A86B, 0.8, 15);
+  goldLight.position.set(-5, 3, 5);
+  scene.add(goldLight);
+
+  camera.position.z = 6;
+
+  let mouseX = 0, mouseY = 0;
+  let targetRotationX = 0, targetRotationY = 0;
+  let time = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+        mouseX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+    }
+  }, { passive: true });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    time += 0.015;
+    
+    // Constant fluid rotation
+    group.rotation.y += 0.0025;
+    
+    // Floating oscillation (sinusoidal movement)
+    group.position.y = Math.sin(time) * 0.12;
+    
+    // Increased responsiveness to movement
+    targetRotationY = mouseX * 0.55;
+    targetRotationX = mouseY * 0.45;
+    
+    group.rotation.y += (targetRotationY - (group.rotation.y % (Math.PI * 2))) * 0.08;
+    group.rotation.x += (targetRotationX - group.rotation.x) * 0.08;
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+
+  animate();
+})();
+</script>
+</body></html>
